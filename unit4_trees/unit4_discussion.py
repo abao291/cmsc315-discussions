@@ -164,7 +164,7 @@ def main():
     #    and right subtrees.
     # 4. Display the values inserted.
     # 5. Use comments to explain why a BST is efficient at reducing search space for each step.
-
+    print("\n=== TREE CONSTRUCTION ===")
     # Create a new binary search tree
     tree = BST()
 
