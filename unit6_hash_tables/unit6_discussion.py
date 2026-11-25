@@ -33,7 +33,23 @@ def main():
 
 
     print("\n=== INSERT OPERATIONS ===")
-    print("TODO: Create a dictionary and add multiple key-value pairs.")
+
+    # Create an empty dictionary to store basketball player statistics
+    player_stats = {}
+
+    # Python dictionaries use hashing to store and retrieve key-value pairs
+    # Each player ID is a unique key and points scored is its associated value
+
+    # Insert five basketball players and their points scored
+    player_stats[101] = 25
+    player_stats[102] = 18
+    player_stats[103] = 32
+    player_stats[104] = 12
+    player_stats[105] = 21
+
+    # Display the contents of the dictionary
+    print("Basketball player statistics:")
+    print(player_stats)
 
     # ===============================
     # TODO (Student): LOOKUP OPERATIONS
@@ -45,7 +61,13 @@ def main():
     # 3. Add meaningful comments to explain how the lookup works.
 
     print("\n=== LOOKUP OPERATIONS ===")
-    print("TODO: Demonstrate successful key lookups.")
+
+    # Retrieve player statistics using their unique player IDs
+    # The dictionary uses hashing to locate the associated values
+    # without having to search through every entry
+
+    print("Player 101 points:", player_stats[101])
+    print("Player 103 points:", player_stats[103])
 
     # ===============================
     # TODO (Student): UPDATE OPERATIONS
@@ -58,7 +80,18 @@ def main():
     #    a new value.
 
     print("\n=== UPDATE OPERATIONS ===")
-    print("TODO: Demonstrate updating an existing key.")
+
+    # Display the dictionary before updating
+    print("Before update:", player_stats)
+
+    # Update the points scored by player 102
+    # Assigning a new value to an existing key replaces its previous value
+    # without creating a duplicate entry
+
+    player_stats[102] = 24
+
+    # Display the dictionary after updating
+    print("After update:", player_stats)
 
     # ===============================
     # TODO (Student): DELETE OPERATIONS
@@ -70,7 +103,17 @@ def main():
     # 3. Use comments to explain what happens when a key is removed.
 
     print("\n=== DELETE OPERATIONS ===")
-    print("TODO: Demonstrate deleting a key-value pair.")
+
+    # Display the dictionary before deletion
+    print("Before deletion:", player_stats)
+
+    # Remove player 104 from the dictionary
+    # Deleting a key also removes its associated value
+
+    del player_stats[104]
+
+    # Display the dictionary after deletion
+    print("After deletion:", player_stats)
 
     # ===============================
     # TODO (Student): EDGE CASES
@@ -87,7 +130,37 @@ def main():
     # Explain what happens in each case.
 
     print("\n=== EDGE CASES ===")
-    print("TODO: Demonstrate and explain edge cases.")
+
+    # Edge Case 1: Look up a missing player
+    # The get() method returns a default value instead of raising a KeyError
+
+    print("\nEdge Case 1: Lookup a missing player")
+    print("Player 999:", player_stats.get(999, "Player not found"))
+
+    # Edge Case 2: Safely delete a missing player
+    # Check whether the key exists before attempting to delete it
+
+    print("\nEdge Case 2: Delete a missing player")
+
+    if 999 in player_stats:
+        del player_stats[999]
+        print("Player 999 removed")
+    else:
+        print("Player 999 does not exist")
+
+    # Edge Case 3: Perform a lookup on an empty dictionary
+    # The get() method safely handles lookups when no entries exist
+
+    print("\nEdge Case 3: Lookup in an empty dictionary")
+
+    empty_stats = {}
+
+    print("Empty dictionary:", empty_stats)
+    print("Player 101:", empty_stats.get(101, "Player not found"))
+
+    # Display the final dictionary and number of remaining entries
+    print("\nFinal player statistics:", player_stats)
+    print("Total players:", len(player_stats))
 
 
 
